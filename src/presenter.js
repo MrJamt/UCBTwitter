@@ -1,15 +1,22 @@
-import sumar from "./sumador";
+// import sumar from "./sumador";
+import Post from "./class-post";
+import ListPost from "./class-ListPost";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+const form = document.querySelector("#UCBT-form");
+const titulo = document.querySelector("#post_titulo");
+const detalle = document.querySelector("#post_det");
+let lista = document.getElementById('listaP');
+const LP = new ListPost();
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  lista.innerHTML="";
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+  let tit=titulo.value;
+  let det=detalle.value;
+  const post = new Post(tit,det);
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  LP.insertPost(post);
+
+  lista = LP.mostrarPosts(lista);
 });
