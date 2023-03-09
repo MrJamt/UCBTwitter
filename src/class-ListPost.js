@@ -17,7 +17,7 @@ class ListPost {
               li.innerHTML += "<br> <b> Detalle : </b>" + post.detalle;
             }
 
-          lista.appendChild(li);
+          lista.appendChild(li); //para acumular posts
             }
     return lista;
     }
