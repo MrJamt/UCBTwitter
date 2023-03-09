@@ -1,4 +1,3 @@
-// import sumar from "./sumador";
 import Post from "./class-post";
 import ListPost from "./class-ListPost";
 
@@ -13,10 +12,17 @@ form.addEventListener("submit", (event) => {
   lista.innerHTML="";
 
   let tit=titulo.value;
-  let det=detalle.value;
-  const post = new Post(tit,det);
+  if(titulo.value!="")
+  {
+      let det=detalle.value;
+      const post = new Post(tit,det);
 
-  LP.insertPost(post);
+      LP.insertPost(post);
 
-  lista = LP.mostrarPosts(lista);
+      lista = LP.mostrarPosts(lista);
+  }
+  else
+  {
+    lista.innerHTML += "ERROR: No es posible publicar un post sin título"; //muestra el mensaje hasta introducir un post con titulo
+  }
 });
